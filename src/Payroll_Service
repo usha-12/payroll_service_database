@@ -237,7 +237,47 @@ mysql> desc employee_payroll;
 | department | varchar(20)  | NO   |     | NULL    |                |
 +------------+--------------+------+-----+---------+----------------+
 8 rows in set (0.01 sec)
+=======================================================UC9===============================================================
 
+mysql> alter table employee_payroll add column basicpay double;
+Query OK, 0 rows affected (0.01 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table employee_payroll add column deductions double;
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table employee_payroll add column taxablepay double;
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table employee_payroll add column incomtax double;
+Query OK, 0 rows affected (0.01 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table employee_payroll add column netpay double;
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc employee_payroll;
++------------+--------------+------+-----+---------+----------------+
+| Field      | Type         | Null | Key | Default | Extra          |
++------------+--------------+------+-----+---------+----------------+
+| Id         | int          | NO   | PRI | NULL    | auto_increment |
+| Name       | varchar(20)  | YES  |     | NULL    |                |
+| gender     | char(1)      | YES  |     | NULL    |                |
+| Salary     | double(10,3) | YES  |     | NULL    |                |
+| StartDate  | date         | YES  |     | NULL    |                |
+| phone      | mediumtext   | YES  |     | NULL    |                |
+| address    | varchar(50)  | YES  |     | india   |                |
+| department | varchar(20)  | NO   |     | NULL    |                |
+| basicpay   | double       | YES  |     | NULL    |                |
+| deductions | double       | YES  |     | NULL    |                |
+| taxablepay | double       | YES  |     | NULL    |                |
+| incomtax   | double       | YES  |     | NULL    |                |
+| netpay     | double       | YES  |     | NULL    |                |
++------------+--------------+------+-----+---------+----------------+
+13 rows in set (0.00 sec)
 mysql>
 ============================================================================Uc6==============================================
 mysql>  alter table  employee_payroll add gender CHAR(1) after name;
@@ -286,6 +326,7 @@ mysql> select * from employee
 |  2 | ANTONY | 300000 | 2020-06-26 |
 +----+--------+--------+------------+
 1 row in set (0.00 sec)g
+
 
 
 
