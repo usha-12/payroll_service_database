@@ -50,7 +50,7 @@ mysql> desc  employee_payroll
 mysql> INSERT INTO employee_payroll(Name, Salary, StartDate)Values ('STPHILOS', 200000.00, '2021-03-19'),('ANTONY', 300000.00, '2020-06-26'), ('LESA', 300000.00, '2019-07-26');
 Query OK, 3 rows affected (0.00 sec)
 Records: 3  Duplicates: 0  Warnings: 0
-==================================================================================uc6==============================================================
+==================================================================================uc7==============================================================
 mysql>  select AVG(salary) from employee_payroll where gender = 'M' group by gender;
 +----------------+
 | AVG(salary)    |
@@ -278,6 +278,55 @@ mysql> desc employee_payroll;
 | netpay     | double       | YES  |     | NULL    |                |
 +------------+--------------+------+-----+---------+----------------+
 13 rows in set (0.00 sec)
+mysql>
+============================================================================Uc6==============================================
+mysql>  alter table  employee_payroll add gender CHAR(1) after name;
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> update employee_payroll set gender = 'M' where name = 'STPHILOS';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update  employee_payroll set gender = 'M' where name = 'ANTONY';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql>  update  employee_payroll set gender = 'F' where name = 'LESA';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from  employee_payroll;
++----+----------+--------+------------+------------+
+| Id | Name     | gender | Salary     | StartDate  |
++----+----------+--------+------------+------------+
+|  6 | STPHILOS | M      | 200000.000 | 2021-03-19 |
+|  7 | ANTONY   | M      | 300000.000 | 2020-06-26 |
+|  8 | LESA     | F      | 300000.000 | 2019-07-26 |
++----+----------+--------+------------+------------+
+3 rows in set (0.00 sec)
+==========================================================================uc5==========================================================
+mysql> where start BETWEEN CAST('2020-06-26' AS DATE) AND DATE(NOW());
+
+mysql> select * from employee;
++----+----------+--------+------------+
+| id | name     | salary | start      |
++----+----------+--------+------------+
+|  1 | STPHILOS | 200000 | 2021-03-19 |
+|  2 | ANTONY   | 300000 | 2020-06-26 |
+|  3 | LESA     | 300000 | 2019-07-26 |
++----+----------+--------+------------+
+3 rows in set (0.00 sec)
+
+mysql> select * from employee
+    -> where start BETWEEN CAST('2020-06-26' AS DATE) AND DATE(NOW());
++----+--------+--------+------------+
+| id | name   | salary | start      |
++----+--------+--------+------------+
+|  2 | ANTONY | 300000 | 2020-06-26 |
++----+--------+--------+------------+
+1 row in set (0.00 sec)g
+
 
 
 
