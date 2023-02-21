@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ca1b5e61-abdb-4a89-b8a9-dff0f4d6218b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/Payroll_Service" beforeDir="false" afterPath="$PROJECT_DIR$/src/Payroll_Service" afterDir="false" />
-    </list>
+    <list default="true" id="ca1b5e61-abdb-4a89-b8a9-dff0f4d6218b" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
