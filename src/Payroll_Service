@@ -84,7 +84,6 @@ mysql>  select gender,COUNT(salary) from employee_payroll group by gender;
 | F      |             1 |
 +--------+---------------+
 2 rows in set (0.00 sec)
-
 mysql> select gender,SUM(salary) from  employee_payroll group by gender;
 +--------+-------------+
 | gender | SUM(salary) |
