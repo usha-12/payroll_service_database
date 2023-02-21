@@ -237,9 +237,41 @@ mysql> desc employee_payroll;
 | department | varchar(20)  | NO   |     | NULL    |                |
 +------------+--------------+------+-----+---------+----------------+
 8 rows in set (0.01 sec)
-=======================================================UC9===============================================================
-======================================================================uc10===================================
+====================================================================uc11================================================
 
+mysql> create table EmployeeDepartment(empid int not null auto_increment primary key,deptid int not null );
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> desc EmployeeDepartment;
++--------+------+------+-----+---------+----------------+
+| Field  | Type | Null | Key | Default | Extra          |
++--------+------+------+-----+---------+----------------+
+| empid  | int  | NO   | PRI | NULL    | auto_increment |
+| deptid | int  | NO   |     | NULL    |                |
++--------+------+------+-----+---------+----------------+
+2 rows in set (0.01 sec)
+
+mysql> insert into EmployeeDepartment(deptid) values(1000);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into EmployeeDepartment(deptid) values(1001);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into EmployeeDepartment(deptid) values(1002);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from EmployeeDepartment;
++-------+--------+
+| empid | deptid |
++-------+--------+
+|     1 |   1000 |
+|     2 |   1001 |
+|     3 |   1002 |
++-------+--------+
+3 rows in set (0.00 sec)
+
+mysql> delete from EmployeeDepartment where empid=1;
+Query OK, 1 row affected (0.01 sec)
 mysql> insert into employee_payroll(Name,gender,Salary,StartDate,phone,address,department,basicpay,deductions,taxablepay,incomtax,netpay)values('Usha','F',110035,'2016-07-10',2789034567,'Delhi Rohini','Engineering',90234,3527,09345,5678,35678);
 Query OK, 1 row affected (0.01 sec)
 
@@ -310,8 +342,7 @@ Records: 0  Duplicates: 0  Warnings: 0
 
 mysql> alter table employee_payroll add column netpay double;
 Query OK, 0 rows affected (0.02 sec)
-Records: 0  Duplicates: 0  Warnings: 0
-
+Records: 0  Duplicates: 0  Warnings: 
 mysql> desc employee_payroll;
 +------------+--------------+------+-----+---------+----------------+
 | Field      | Type         | Null | Key | Default | Extra          |
@@ -379,6 +410,16 @@ mysql> select * from employee
 |  2 | ANTONY | 300000 | 2020-06-26 |
 +----+--------+--------+------------+
 1 row in set (0.00 sec)g
+
+
+
+
+
+
+
+
+
+
 
 
 
