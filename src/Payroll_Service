@@ -238,6 +238,72 @@ mysql> desc employee_payroll;
 +------------+--------------+------+-----+---------+----------------+
 8 rows in set (0.01 sec)
 
+====================================================================uc11================================================
+
+mysql> create table EmployeeDepartment(empid int not null auto_increment primary key,deptid int not null );
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> desc EmployeeDepartment;
++--------+------+------+-----+---------+----------------+
+| Field  | Type | Null | Key | Default | Extra          |
++--------+------+------+-----+---------+----------------+
+| empid  | int  | NO   | PRI | NULL    | auto_increment |
+| deptid | int  | NO   |     | NULL    |                |
++--------+------+------+-----+---------+----------------+
+2 rows in set (0.01 sec)
+
+mysql> insert into EmployeeDepartment(deptid) values(1000);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into EmployeeDepartment(deptid) values(1001);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into EmployeeDepartment(deptid) values(1002);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from EmployeeDepartment;
++-------+--------+
+| empid | deptid |
++-------+--------+
+|     1 |   1000 |
+|     2 |   1001 |
+|     3 |   1002 |
++-------+--------+
+3 rows in set (0.00 sec)
+
+mysql> delete from EmployeeDepartment where empid=1;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> desc employee_payroll;
++------------+--------------+------+-----+---------+----------------+
+| Field      | Type         | Null | Key | Default | Extra          |
++------------+--------------+------+-----+---------+----------------+
+| Id         | int          | NO   | PRI | NULL    | auto_increment |
+| Name       | varchar(20)  | YES  |     | NULL    |                |
+| gender     | char(1)      | YES  |     | NULL    |                |
+| Salary     | double(10,3) | YES  |     | NULL    |                |
+| StartDate  | date         | YES  |     | NULL    |                |
+| phone      | mediumtext   | YES  |     | NULL    |                |
+| address    | varchar(50)  | YES  |     | india   |                |
+| department | varchar(20)  | NO   |     | NULL    |                |
+| basicpay   | double       | YES  |     | NULL    |                |
+| deductions | double       | YES  |     | NULL    |                |
+| taxablepay | double       | YES  |     | NULL    |                |
+| incomtax   | double       | YES  |     | NULL    |                |
+| netpay     | double       | YES  |     | NULL    |                |
++------------+--------------+------+-----+---------+----------------+
+13 rows in set (0.00 sec)
+
 mysql>
+
+
+
+
+
+
+
+
+
+
 
 
