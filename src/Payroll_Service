@@ -238,6 +238,61 @@ mysql> desc employee_payroll;
 +------------+--------------+------+-----+---------+----------------+
 8 rows in set (0.01 sec)
 
+======================================================================uc10===================================
+
+mysql> insert into employee_payroll(Name,gender,Salary,StartDate,phone,address,department,basicpay,deductions,taxablepay,incomtax,netpay)values('Usha','F',110035,'2016-07-10',2789034567,'Delhi Rohini','Engineering',90234,3527,09345,5678,35678);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from  employee_payroll;
++----+----------+--------+------------+------------+------------+--------------+-------------+----------+------------+------------+----------+--------+
+| Id | Name     | gender | Salary     | StartDate  | phone      | address      | department  | basicpay | deductions | taxablepay | incomtax | netpay |
++----+----------+--------+------------+------------+------------+--------------+-------------+----------+------------+------------+----------+--------+
+|  1 | STPHILOS | M      | 200000.000 | 2021-03-19 | NULL       | india        |             |     NULL |       NULL |       NULL |     NULL |   NULL |
+|  2 | ANTONY   | M      | 300000.000 | 2020-06-26 | NULL       | india        |             |     NULL |       NULL |       NULL |     NULL |   NULL |
+|  3 | LESA     | F      | 300000.000 | 2019-07-26 | NULL       | india        |             |     NULL |       NULL |       NULL |     NULL |   NULL |
+|  9 | Usha     | F      | 110035.000 | 2016-07-10 | 2789034567 | Delhi Rohini | Engineering |    90234 |       3527 |       9345 |     5678 |  35678 |
++----+----------+--------+------------+------------+------------+--------------+-------------+----------+------------+------------+----------+--------+
+4 rows in set (0.00 sec)
+
+mysql> insert into employee_payroll(Name,gender,Salary,StartDate,phone,address,department,basicpay,deductions,taxablepay,incomtax,netpay)values('Nadeem','M',110035,'2015-07-10',2789034567,'Patna','Machenical',90234,3527,09345,5678,35678);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from  employee_payroll;
++----+----------+--------+------------+------------+------------+--------------+-------------+----------+------------+------------+----------+--------+
+| Id | Name     | gender | Salary     | StartDate  | phone      | address      | department  | basicpay | deductions | taxablepay | incomtax | netpay |
++----+----------+--------+------------+------------+------------+--------------+-------------+----------+------------+------------+----------+--------+
+|  1 | STPHILOS | M      | 200000.000 | 2021-03-19 | NULL       | india        |             |     NULL |       NULL |       NULL |     NULL |   NULL |
+|  2 | ANTONY   | M      | 300000.000 | 2020-06-26 | NULL       | india        |             |     NULL |       NULL |       NULL |     NULL |   NULL |
+|  3 | LESA     | F      | 300000.000 | 2019-07-26 | NULL       | india        |             |     NULL |       NULL |       NULL |     NULL |   NULL |
+|  9 | Usha     | F      | 110035.000 | 2016-07-10 | 2789034567 | Delhi Rohini | Engineering |    90234 |       3527 |       9345 |     5678 |  35678 |
+| 10 | Nadeem   | M      | 110035.000 | 2015-07-10 | 2789034567 | Patna        | Machenical  |    90234 |       3527 |       9345 |     5678 |  35678 |
++----+----------+--------+------------+------------+------------+--------------+-------------+----------+------------+------------+----------+--------+
+5 rows in set (0.00 sec)
+mysql> update employee_payroll set department='sales and marketing ' where id>1;
+Query OK, 4 rows affected (0.00 sec)
+Rows matched: 4  Changed: 4  Warnings: 0
+
+mysql> update employee_payroll set department='computer' where id>12 and id <16;
+Query OK, 0 rows affected (0.00 sec)
+Rows matched: 0  Changed: 0  Warnings: 0
+
+mysql> update employee_payroll set department='mechanical ' where id=16;
+Query OK, 0 rows affected (0.00 sec)
+Rows matched: 0  Changed: 0  Warnings: 0
+
+mysql> alter table employee_payroll modify salary int auto_increment;
+mysql> select * from  employee_payroll;
++----+----------+--------+------------+------------+------------+--------------+----------------------+----------+------------+------------+----------+--------+
+| Id | Name     | gender | Salary     | StartDate  | phone      | address      | department           | basicpay | deductions | taxablepay | incomtax | netpay |
++----+----------+--------+------------+------------+------------+--------------+----------------------+----------+------------+------------+----------+--------+
+|  1 | STPHILOS | M      | 200000.000 | 2021-03-19 | NULL       | india        |                      |     NULL |       NULL |       NULL |     NULL |   NULL |
+|  2 | ANTONY   | M      | 300000.000 | 2020-06-26 | NULL       | india        | sales and marketing  |     NULL |       NULL |       NULL |     NULL |   NULL |
+|  3 | LESA     | F      | 300000.000 | 2019-07-26 | NULL       | india        | sales and marketing  |     NULL |       NULL |       NULL |     NULL |   NULL |
+|  9 | Usha     | F      | 110035.000 | 2016-07-10 | 2789034567 | Delhi Rohini | sales and marketing  |    90234 |       3527 |       9345 |     5678 |  35678 |
+| 10 | Nadeem   | M      | 110035.000 | 2015-07-10 | 2789034567 | Patna        | sales and marketing  |    90234 |       3527 |       9345 |     5678 |  35678 |
++----+----------+--------+------------+------------+------------+--------------+----------------------+----------+------------+------------+----------+--------+
+5 rows in set (0.00 sec)
+
 mysql>
 
 
