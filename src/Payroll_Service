@@ -50,7 +50,7 @@ mysql> desc  employee_payroll
 mysql> INSERT INTO employee_payroll(Name, Salary, StartDate)Values ('STPHILOS', 200000.00, '2021-03-19'),('ANTONY', 300000.00, '2020-06-26'), ('LESA', 300000.00, '2019-07-26');
 Query OK, 3 rows affected (0.00 sec)
 Records: 3  Duplicates: 0  Warnings: 0
-==================================================================================uc6==============================================================
+==================================================================================uc7==============================================================
 mysql>  select AVG(salary) from employee_payroll where gender = 'M' group by gender;
 +----------------+
 | AVG(salary)    |
@@ -237,7 +237,6 @@ mysql> desc employee_payroll;
 | department | varchar(20)  | NO   |     | NULL    |                |
 +------------+--------------+------+-----+---------+----------------+
 8 rows in set (0.01 sec)
-
 ====================================================================uc11================================================
 
 mysql> create table EmployeeDepartment(empid int not null auto_increment primary key,deptid int not null );
@@ -273,7 +272,77 @@ mysql> select * from EmployeeDepartment;
 
 mysql> delete from EmployeeDepartment where empid=1;
 Query OK, 1 row affected (0.01 sec)
+mysql> insert into employee_payroll(Name,gender,Salary,StartDate,phone,address,department,basicpay,deductions,taxablepay,incomtax,netpay)values('Usha','F',110035,'2016-07-10',2789034567,'Delhi Rohini','Engineering',90234,3527,09345,5678,35678);
+Query OK, 1 row affected (0.01 sec)
 
+mysql> select * from  employee_payroll;
++----+----------+--------+------------+------------+------------+--------------+-------------+----------+------------+------------+----------+--------+
+| Id | Name     | gender | Salary     | StartDate  | phone      | address      | department  | basicpay | deductions | taxablepay | incomtax | netpay |
++----+----------+--------+------------+------------+------------+--------------+-------------+----------+------------+------------+----------+--------+
+|  1 | STPHILOS | M      | 200000.000 | 2021-03-19 | NULL       | india        |             |     NULL |       NULL |       NULL |     NULL |   NULL |
+|  2 | ANTONY   | M      | 300000.000 | 2020-06-26 | NULL       | india        |             |     NULL |       NULL |       NULL |     NULL |   NULL |
+|  3 | LESA     | F      | 300000.000 | 2019-07-26 | NULL       | india        |             |     NULL |       NULL |       NULL |     NULL |   NULL |
+|  9 | Usha     | F      | 110035.000 | 2016-07-10 | 2789034567 | Delhi Rohini | Engineering |    90234 |       3527 |       9345 |     5678 |  35678 |
++----+----------+--------+------------+------------+------------+--------------+-------------+----------+------------+------------+----------+--------+
+4 rows in set (0.00 sec)
+
+mysql> insert into employee_payroll(Name,gender,Salary,StartDate,phone,address,department,basicpay,deductions,taxablepay,incomtax,netpay)values('Nadeem','M',110035,'2015-07-10',2789034567,'Patna','Machenical',90234,3527,09345,5678,35678);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from  employee_payroll;
++----+----------+--------+------------+------------+------------+--------------+-------------+----------+------------+------------+----------+--------+
+| Id | Name     | gender | Salary     | StartDate  | phone      | address      | department  | basicpay | deductions | taxablepay | incomtax | netpay |
++----+----------+--------+------------+------------+------------+--------------+-------------+----------+------------+------------+----------+--------+
+|  1 | STPHILOS | M      | 200000.000 | 2021-03-19 | NULL       | india        |             |     NULL |       NULL |       NULL |     NULL |   NULL |
+|  2 | ANTONY   | M      | 300000.000 | 2020-06-26 | NULL       | india        |             |     NULL |       NULL |       NULL |     NULL |   NULL |
+|  3 | LESA     | F      | 300000.000 | 2019-07-26 | NULL       | india        |             |     NULL |       NULL |       NULL |     NULL |   NULL |
+|  9 | Usha     | F      | 110035.000 | 2016-07-10 | 2789034567 | Delhi Rohini | Engineering |    90234 |       3527 |       9345 |     5678 |  35678 |
+| 10 | Nadeem   | M      | 110035.000 | 2015-07-10 | 2789034567 | Patna        | Machenical  |    90234 |       3527 |       9345 |     5678 |  35678 |
++----+----------+--------+------------+------------+------------+--------------+-------------+----------+------------+------------+----------+--------+
+5 rows in set (0.00 sec)
+mysql> update employee_payroll set department='sales and marketing ' where id>1;
+Query OK, 4 rows affected (0.00 sec)
+Rows matched: 4  Changed: 4  Warnings: 0
+
+mysql> update employee_payroll set department='computer' where id>12 and id <16;
+Query OK, 0 rows affected (0.00 sec)
+Rows matched: 0  Changed: 0  Warnings: 0
+
+mysql> update employee_payroll set department='mechanical ' where id=16;
+Query OK, 0 rows affected (0.00 sec)
+Rows matched: 0  Changed: 0  Warnings: 0
+
+mysql> alter table employee_payroll modify salary int auto_increment;
+mysql> select * from  employee_payroll;
++----+----------+--------+------------+------------+------------+--------------+----------------------+----------+------------+------------+----------+--------+
+| Id | Name     | gender | Salary     | StartDate  | phone      | address      | department           | basicpay | deductions | taxablepay | incomtax | netpay |
++----+----------+--------+------------+------------+------------+--------------+----------------------+----------+------------+------------+----------+--------+
+|  1 | STPHILOS | M      | 200000.000 | 2021-03-19 | NULL       | india        |                      |     NULL |       NULL |       NULL |     NULL |   NULL |
+|  2 | ANTONY   | M      | 300000.000 | 2020-06-26 | NULL       | india        | sales and marketing  |     NULL |       NULL |       NULL |     NULL |   NULL |
+|  3 | LESA     | F      | 300000.000 | 2019-07-26 | NULL       | india        | sales and marketing  |     NULL |       NULL |       NULL |     NULL |   NULL |
+|  9 | Usha     | F      | 110035.000 | 2016-07-10 | 2789034567 | Delhi Rohini | sales and marketing  |    90234 |       3527 |       9345 |     5678 |  35678 |
+| 10 | Nadeem   | M      | 110035.000 | 2015-07-10 | 2789034567 | Patna        | sales and marketing  |    90234 |       3527 |       9345 |     5678 |  35678 |
++----+----------+--------+------------+------------+------------+--------------+----------------------+----------+------------+------------+----------+--------+
+5 rows in set (0.00 sec)
+mysql> alter table employee_payroll add column basicpay double;
+Query OK, 0 rows affected (0.01 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table employee_payroll add column deductions double;
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table employee_payroll add column taxablepay double;
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table employee_payroll add column incomtax double;
+Query OK, 0 rows affected (0.01 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table employee_payroll add column netpay double;
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 
 mysql> desc employee_payroll;
 +------------+--------------+------+-----+---------+----------------+
 | Field      | Type         | Null | Key | Default | Extra          |
@@ -293,8 +362,56 @@ mysql> desc employee_payroll;
 | netpay     | double       | YES  |     | NULL    |                |
 +------------+--------------+------+-----+---------+----------------+
 13 rows in set (0.00 sec)
-
 mysql>
+============================================================================Uc6==============================================
+mysql>  alter table  employee_payroll add gender CHAR(1) after name;
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> update employee_payroll set gender = 'M' where name = 'STPHILOS';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update  employee_payroll set gender = 'M' where name = 'ANTONY';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql>  update  employee_payroll set gender = 'F' where name = 'LESA';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from  employee_payroll;
++----+----------+--------+------------+------------+
+| Id | Name     | gender | Salary     | StartDate  |
++----+----------+--------+------------+------------+
+|  6 | STPHILOS | M      | 200000.000 | 2021-03-19 |
+|  7 | ANTONY   | M      | 300000.000 | 2020-06-26 |
+|  8 | LESA     | F      | 300000.000 | 2019-07-26 |
++----+----------+--------+------------+------------+
+3 rows in set (0.00 sec)
+==========================================================================uc5==========================================================
+mysql> where start BETWEEN CAST('2020-06-26' AS DATE) AND DATE(NOW());
+
+mysql> select * from employee;
++----+----------+--------+------------+
+| id | name     | salary | start      |
++----+----------+--------+------------+
+|  1 | STPHILOS | 200000 | 2021-03-19 |
+|  2 | ANTONY   | 300000 | 2020-06-26 |
+|  3 | LESA     | 300000 | 2019-07-26 |
++----+----------+--------+------------+
+3 rows in set (0.00 sec)
+
+mysql> select * from employee
+    -> where start BETWEEN CAST('2020-06-26' AS DATE) AND DATE(NOW());
++----+--------+--------+------------+
+| id | name   | salary | start      |
++----+--------+--------+------------+
+|  2 | ANTONY | 300000 | 2020-06-26 |
++----+--------+--------+------------+
+1 row in set (0.00 sec)g
+
+
 
 
 
